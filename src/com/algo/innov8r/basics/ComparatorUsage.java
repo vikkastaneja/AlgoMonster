@@ -16,8 +16,13 @@ public class ComparatorUsage {
     }
     public static void main(String[] args) {
         Integer[]arr = {91,3,1,5,11,422,64,22};
-        Comparator<Integer> comp = (Integer a, Integer b) -> {
-            return b - a;
+        Comparator<Integer> comp = new Comparator<Integer>(){
+         
+            @Override
+            public int compare(Integer a, Integer b)
+            {
+                return b - a;
+            }
         };
         Arrays.sort(arr, comp);
 
