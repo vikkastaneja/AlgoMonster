@@ -4,8 +4,11 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+
 import org.junit.Assert;
 
+// Runtime: O(number of nodes in the tree) --> Linear
+// Memory: O(max number of leaf nodes because at any point in time, a level will be in the queue) + O(number of nodes * size of Integer)
 public class BinaryTreeLevelOrderTraversal {
     public static class Node<T> {
         public T val;

@@ -8,6 +8,8 @@ import org.junit.Assert;
 
 // NOTE: Traversal is the same as level order traversal.
 // The only difference is that when adding to the list, we will add first or add last based on the traversal direction
+// Runtime: O(number of nodes in the tree) --> Linear
+// Memory: O(max number of leaf nodes because at any point in time, a level will be in the queue) + O(number of nodes * size of Integer)
 public class BinaryTreeZigZagLevelOrderTraversal {
     public static class Node<T> {
         public T val;
