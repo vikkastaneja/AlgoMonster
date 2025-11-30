@@ -5,7 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 // Runtime: O(number of nodes in the tree) --> Linear
 // Memory: O(max number of leaf nodes because at any point in time, a level will be in the queue) + O(number of nodes * size of Integer)
@@ -76,9 +76,9 @@ public class BinaryTreeLevelOrderTraversal {
 
         List<List<Integer>> expected = Arrays.asList(Arrays.asList(1), Arrays.asList(2,3), Arrays.asList(4,5,6), Arrays.asList(7));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         root = buildTree(splitWords("1 x x").iterator(), Integer::parseInt);
@@ -90,9 +90,9 @@ public class BinaryTreeLevelOrderTraversal {
 
         expected = Arrays.asList(Arrays.asList(1));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

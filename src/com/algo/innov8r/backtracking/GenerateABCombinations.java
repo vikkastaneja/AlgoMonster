@@ -1,6 +1,6 @@
 package com.algo.innov8r.backtracking;
 
-import static org.junit.Assert.assertTrue;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +37,7 @@ public class GenerateABCombinations {
             System.out.println(line);
         }
 
-        assertTrue(res.equals(Arrays.asList("aa", "ab", "ba", "bb")));
+        Assertion.assertTrue(res.equals(Arrays.asList("aa", "ab", "ba", "bb")));
 
         res = letterCombination(1);
 
@@ -46,7 +46,7 @@ public class GenerateABCombinations {
             System.out.println(line);
         }
 
-        assertTrue(res.equals(Arrays.asList("a", "b")));
+        Assertion.assertTrue(res.equals(Arrays.asList("a", "b")));
 
         res = letterCombination(3);
 
@@ -55,7 +55,7 @@ public class GenerateABCombinations {
             System.out.println(line);
         }
 
-        assertTrue(res.equals(Arrays.asList("aaa", "aab","aba","abb","baa","bab","bba","bbb")));
+        Assertion.assertTrue(res.equals(Arrays.asList("aaa", "aab","aba","abb","baa","bab","bba","bbb")));
 
         res = letterCombination(0);
 
@@ -64,6 +64,6 @@ public class GenerateABCombinations {
             System.out.println(line);
         }
 
-        assertTrue(res.equals(Arrays.asList("")));
+        Assertion.assertTrue(res.equals(Arrays.asList("")));
     }
 }

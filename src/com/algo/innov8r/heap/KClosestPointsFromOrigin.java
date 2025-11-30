@@ -7,7 +7,7 @@ import java.io.StringWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 public class KClosestPointsFromOrigin {
     public static List<List<Integer>> kClosestPoints(List<List<Integer>> points, int k) {
@@ -61,9 +61,9 @@ public class KClosestPointsFromOrigin {
 
         List<List<Integer>> expected = Arrays.asList(Arrays.asList(2,4), Arrays.asList(4,4));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         // Test 2
@@ -89,9 +89,9 @@ public class KClosestPointsFromOrigin {
 
         expected = Arrays.asList(Arrays.asList(-2,2));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         // Test 3
@@ -117,9 +117,9 @@ public class KClosestPointsFromOrigin {
 
         expected = Arrays.asList(Arrays.asList(1,1));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

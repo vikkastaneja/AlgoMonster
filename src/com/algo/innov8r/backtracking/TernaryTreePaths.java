@@ -1,6 +1,6 @@
 package com.algo.innov8r.backtracking;
 
-import static org.junit.Assert.assertTrue;
+import static com.algo.innov8r.common.Assertion.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Arrays;

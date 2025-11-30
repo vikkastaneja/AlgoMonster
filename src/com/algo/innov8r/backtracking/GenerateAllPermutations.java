@@ -2,7 +2,7 @@ package com.algo.innov8r.backtracking;
 
 import java.util.*;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 public class GenerateAllPermutations {
     public static List<String> permutations(String letters) {
@@ -36,7 +36,7 @@ public class GenerateAllPermutations {
             System.out.println(line);
         }
 
-        Assert.assertTrue(res.equals(Arrays.asList("ab", "ba")));
+        Assertion.assertTrue(res.equals(Arrays.asList("ab", "ba")));
 
         res = permutations("abc");
         Collections.sort(res);
@@ -44,6 +44,6 @@ public class GenerateAllPermutations {
             System.out.println(line);
         }
 
-        Assert.assertTrue(res.equals(Arrays.asList("abc","acb","bac","bca","cab","cba")));
+        Assertion.assertTrue(res.equals(Arrays.asList("abc","acb","bac","bca","cab","cba")));
     }
 }

@@ -1,6 +1,6 @@
 package com.algo.innov8r.backtracking;
 
-import static org.junit.Assert.assertTrue;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,24 +44,24 @@ public class CombinationsFromPhoneNumber {
         System.out.println(String.join(" ", res));
 
         List<String> ret = Arrays.asList("jm","jn","jo","km","kn","ko","lm","ln","lo");
-        assertTrue(ret.equals(res));
+        Assertion.assertTrue(ret.equals(res));
 
         res = letterCombinationsOfPhoneNumber("23");
         System.out.println(String.join(" ", res));
 
         ret = Arrays.asList("ad","ae","af","bd","be","bf","cd","ce","cf");
-        assertTrue(ret.equals(res));
+        Assertion.assertTrue(ret.equals(res));
 
         res = letterCombinationsOfPhoneNumber("");
         System.out.println(String.join(" ", res));
 
         ret = Arrays.asList("");
-        assertTrue(ret.equals(res));
+        Assertion.assertTrue(ret.equals(res));
 
         res = letterCombinationsOfPhoneNumber("235");
         System.out.println(String.join(" ", res));
 
         ret = Arrays.asList("adj","adk","adl","aej","aek","ael","afj","afk","afl","bdj","bdk","bdl","bej","bek","bel","bfj","bfk","bfl","cdj","cdk","cdl","cej","cek","cel","cfj","cfk","cfl");
-        assertTrue(ret.equals(res));
+        Assertion.assertTrue(ret.equals(res));
     }
 }

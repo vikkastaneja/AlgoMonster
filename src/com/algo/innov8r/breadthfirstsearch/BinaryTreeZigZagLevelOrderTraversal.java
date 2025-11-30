@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 // NOTE: Traversal is the same as level order traversal.
 // The only difference is that when adding to the list, we will add first or add last based on the traversal direction
@@ -87,9 +87,9 @@ public class BinaryTreeZigZagLevelOrderTraversal {
     
         List<List<Integer>> expected = Arrays.asList(Arrays.asList(1), Arrays.asList(3, 2), Arrays.asList(4,5,6, 7), Arrays.asList(13,12,11,10,9,8));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
 
@@ -102,9 +102,9 @@ public class BinaryTreeZigZagLevelOrderTraversal {
 
         expected = Arrays.asList(Arrays.asList(1), Arrays.asList(3, 2), Arrays.asList(4,5,6), Arrays.asList(8,7));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

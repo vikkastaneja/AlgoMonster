@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.stream.Collectors;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 // Runtime: O(num of rows * num of columns)
 // Memory: O(num or rows * num of columns)
@@ -114,9 +114,9 @@ public class FloodFill {
 
         List<List<Integer>> expected = Arrays.asList(Arrays.asList(0, 1, 3, 4, 1),Arrays.asList(3, 9, 9, 3, 3),Arrays.asList(6, 7, 9, 9, 3),Arrays.asList(12, 2, 9, 9, 1),Arrays.asList(12, 3, 1, 3, 2));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         // Test 2
@@ -144,9 +144,9 @@ public class FloodFill {
 
         expected = Arrays.asList(Arrays.asList(0, 1, 6, 4),Arrays.asList(2, 9, 9, 5),Arrays.asList(9, 9, 9, 9),Arrays.asList(6, 4, 9, 4));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

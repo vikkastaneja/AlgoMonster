@@ -1,6 +1,6 @@
 package com.algo.innov8r.twopointers;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,16 +39,16 @@ public class MoveZeroes {
         String val = "1 0 2 0 0 7";
         List<Integer> nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         moveZeros(nums);
-        Assert.assertEquals("1 2 7 0 0 0", nums.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("1 2 7 0 0 0", nums.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
         val = "3 1 0 1 3 8 9";
         nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         moveZeros(nums);
-        Assert.assertEquals("3 1 1 3 8 9 0", nums.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("3 1 1 3 8 9 0", nums.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
         val = "0 0 9 4 0 0 3 8 0";
         nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         moveZeros(nums);
-        Assert.assertEquals("9 4 3 8 0 0 0 0 0", nums.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("9 4 3 8 0 0 0 0 0", nums.stream().map(String::valueOf).collect(Collectors.joining(" ")));
     }
 }

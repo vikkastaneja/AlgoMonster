@@ -1,7 +1,7 @@
 package com.algo.innov8r.binarytree;
 
 import com.algo.innov8r.basics.BinaryTreeNode;
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -25,37 +25,37 @@ public class BalancedBinaryTree {
         String test1 = "1 2 4 x 7 x x 5 x x 3 x 6 x x";
         BinaryTreeNode<Integer> root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         boolean res = isBalanced(root);
-        Assert.assertEquals(true, res);
+        Assertion.assertEquals(true, res);
 
         test1 = "1 2 4 x 7 x x 5 x x 3 x 6 8 x x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = isBalanced(root);
-        Assert.assertEquals(false, res);
+        Assertion.assertEquals(false, res);
 //
         test1 = "1 2 3 x x 4 x 6 x x 5 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = isBalanced(root);
-        Assert.assertEquals(false, res);
+        Assertion.assertEquals(false, res);
 //
         test1 = "1 2 3 x x 4 x 6 x x 5 x 7 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = isBalanced(root);
-        Assert.assertEquals(true, res);
+        Assertion.assertEquals(true, res);
 //
         test1 = "1 2 3 x x 4 x x 5 6 x 7 x x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = isBalanced(root);
-        Assert.assertEquals(false, res);
+        Assertion.assertEquals(false, res);
 //
         test1 = "1 2 3 7 x x x 4 x x 5 6 x x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = isBalanced(root);
-        Assert.assertEquals(true, res);
+        Assertion.assertEquals(true, res);
 
         test1 = "1 2 3 4 x x 4 x x 3 x x 2 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = isBalanced(root);
-        Assert.assertEquals(false, res);
+        Assertion.assertEquals(false, res);
         System.out.println("All tests passed!");
     }
 

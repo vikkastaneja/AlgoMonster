@@ -2,7 +2,7 @@ package com.algo.innov8r.graphs;
 
 import java.util.*;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 /**
  * On an infinitely large chessboard, a knight is located on [0, 0].
@@ -11,9 +11,9 @@ import org.junit.Assert;
  */
 public class KnightMinimumMoves {
     public static void main(String[] args) {
-        Assert.assertEquals("Shortest path is wrong for (2, 1) ", 1, getKnightShortestPath(2, 1));
-        Assert.assertEquals("Shortest path is wrong for (5, 5) ", 4, getKnightShortestPath(5, 5));
-        Assert.assertEquals("Shortest path is wrong for (1, 1) ", 2, getKnightShortestPath(1, 1));
+        Assertion.assertEquals("Shortest path is wrong for (2, 1) ", 1, getKnightShortestPath(2, 1));
+        Assertion.assertEquals("Shortest path is wrong for (5, 5) ", 4, getKnightShortestPath(5, 5));
+        Assertion.assertEquals("Shortest path is wrong for (1, 1) ", 2, getKnightShortestPath(1, 1));
     }
 
     public static class Coordinate {

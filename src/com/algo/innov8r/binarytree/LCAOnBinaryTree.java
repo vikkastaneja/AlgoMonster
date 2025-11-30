@@ -1,7 +1,7 @@
 package com.algo.innov8r.binarytree;
 
 import com.algo.innov8r.basics.BinaryTreeNode;
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -53,27 +53,27 @@ public class LCAOnBinaryTree {
         BinaryTreeNode<Integer> p = findNode(bt, 4);
         BinaryTreeNode<Integer> q = findNode(bt, 8);
         BinaryTreeNode<Integer> res = lcaOnBt(bt, p, q);
-        Assert.assertEquals(findNode(bt, 6), res);
+        Assertion.assertEquals(findNode(bt, 6), res);
 
         val = "6 4 3 x x 5 x x 8 x x";
         bt = buildTree(splitWords(val).iterator(), Integer::parseInt);
         p = findNode(bt, 4);
         q = findNode(bt, 6);
         res = lcaOnBt(bt, p, q);
-        Assert.assertEquals(findNode(bt, 6), res);
+        Assertion.assertEquals(findNode(bt, 6), res);
 
         val = "x";
         bt = buildTree(splitWords(val).iterator(), Integer::parseInt);
         p = findNode(bt, 3);
         q = findNode(bt, 2);
         res = lcaOnBt(bt, p, q);
-        Assert.assertEquals(null, res);
+        Assertion.assertEquals(null, res);
 
         val = "6 4 3 x x 5 x x 8 x x";
         bt = buildTree(splitWords(val).iterator(), Integer::parseInt);
         p = findNode(bt, 3);
         q = findNode(bt, 5);
         res = lcaOnBt(bt, p, q);
-        Assert.assertEquals(findNode(bt, 4), res);
+        Assertion.assertEquals(findNode(bt, 4), res);
     }
 }

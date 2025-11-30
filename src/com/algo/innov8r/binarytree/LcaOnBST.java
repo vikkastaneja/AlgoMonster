@@ -1,7 +1,7 @@
 package com.algo.innov8r.binarytree;
 
 import com.algo.innov8r.basics.BinaryTreeNode;
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -42,20 +42,20 @@ public class LcaOnBST {
         int p = 2;
         int q = 8;
         int res = lcaOnBst(bst, p, q);
-        Assert.assertEquals(6, res);
+        Assertion.assertEquals(6, res);
 
         val = "6 2 0 x x 4 3 x x 5 x x 8 7 x x 9 x x";
         bst = buildTree(splitWords(val).iterator(), Integer::parseInt);
         p = 2;
         q = 4;
         res = lcaOnBst(bst, p, q);
-        Assert.assertEquals(2, res);
+        Assertion.assertEquals(2, res);
 
         val = "2 1 x x x";
         bst = buildTree(splitWords(val).iterator(), Integer::parseInt);
         p = 2;
         q = 1;
         res = lcaOnBst(bst, p, q);
-        Assert.assertEquals(2, res);
+        Assertion.assertEquals(2, res);
     }
 }

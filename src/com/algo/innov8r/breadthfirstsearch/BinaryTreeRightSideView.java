@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 /**
  * Given a binary tree, return the rightmost node of each level.
  * It should be noted that at each level there can only be at most one rightmost node.
@@ -71,18 +71,18 @@ public class BinaryTreeRightSideView {
         List<Integer> res = binaryTreeRightSideView(root);
 
         List<Integer> expected = Arrays.asList(1, 3, 6, 7);
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         root = buildTree(splitWords("0 x x").iterator(), Integer::parseInt);
         res = binaryTreeRightSideView(root);
 
         expected = Arrays.asList(0);
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

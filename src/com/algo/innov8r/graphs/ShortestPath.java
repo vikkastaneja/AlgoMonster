@@ -6,7 +6,7 @@ import java.io.StringWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.io.InputStream;
 
@@ -66,7 +66,7 @@ public class ShortestPath {
         scanner.close();
         int res = shortestPath(graph, a, b);
         System.out.println(res);
-        Assert.assertEquals(2, res);
+        Assertion.assertEquals(2, res);
 
         // Test 2
         String[] inputs1 = {"10", "1 4","0 2","1 3","2 4 5","0 3","3 6 9","5 8","8 9","6 7","5 7","0","7"};
@@ -87,7 +87,7 @@ public class ShortestPath {
         scanner.close();
         res = shortestPath(graph, a, b);
         System.out.println(res);
-        Assert.assertEquals(5, res);
+        Assertion.assertEquals(5, res);
 
         // Test 3
         String[] inputs2 = {"3", "1 2","0","0","1","2"};
@@ -108,7 +108,7 @@ public class ShortestPath {
         scanner.close();
         res = shortestPath(graph, a, b);
         System.out.println(res);
-        Assert.assertEquals(2, res);
+        Assertion.assertEquals(2, res);
 
         // Test 4
         String[] inputs3 = {"2", "1","0","1","0"};
@@ -129,6 +129,6 @@ public class ShortestPath {
         scanner.close();
         res = shortestPath(graph, a, b);
         System.out.println(res);
-        Assert.assertEquals(1, res);
+        Assertion.assertEquals(1, res);
     }
 }

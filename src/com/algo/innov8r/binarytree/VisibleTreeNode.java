@@ -1,7 +1,7 @@
 package com.algo.innov8r.binarytree;
 
 import com.algo.innov8r.basics.BinaryTreeNode;
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -43,32 +43,32 @@ public class VisibleTreeNode {
         BinaryTreeNode<Integer> root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
 //        scanner.close();
         int res = visibleTreeNode(root);
-        Assert.assertEquals(4, res);
+        Assertion.assertEquals(4, res);
 
         test1 = "3 1 3 x x 3 x x 1 2 5 x x x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = visibleTreeNode(root);
-        Assert.assertEquals(4, res);
+        Assertion.assertEquals(4, res);
 
         test1 = "5 8 3 x x 8 x x 6 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = visibleTreeNode(root);
-        Assert.assertEquals(4, res);
+        Assertion.assertEquals(4, res);
 
         test1 = "9 8 11 x x 20 x x 6 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = visibleTreeNode(root);
-        Assert.assertEquals(3, res);
+        Assertion.assertEquals(3, res);
 
         test1 = "-100 x -500 x -50 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = visibleTreeNode(root);
-        Assert.assertEquals(2, res);
+        Assertion.assertEquals(2, res);
 
         test1 = "5 4 3 x x 8 x x 6 x x";
         root = buildTree(splitWords(test1).iterator(), Integer::parseInt);
         res = visibleTreeNode(root);
-        Assert.assertEquals(3, res);
+        Assertion.assertEquals(3, res);
         System.out.println("All tests passed!");
     }
 

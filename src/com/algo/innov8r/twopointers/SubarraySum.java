@@ -1,6 +1,6 @@
 package com.algo.innov8r.twopointers;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +36,6 @@ public class SubarraySum {
         List<Integer> nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         int k = 3;
         int res = maxSubarraySum(nums, k);
-        Assert.assertEquals(14, res);
+        Assertion.assertEquals(14, res);
     }
 }

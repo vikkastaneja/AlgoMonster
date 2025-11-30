@@ -1,6 +1,6 @@
 package com.algo.innov8r.backtracking;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.*;
 
@@ -38,7 +38,7 @@ public class GenerateAllValidParenthesis {
             System.out.println(line);
         }
 
-        Assert.assertTrue("For n = 2", Arrays.asList("(())", "()()").equals(res));
+        Assertion.assertTrue("For n = 2", Arrays.asList("(())", "()()").equals(res));
 
         res = generateParentheses(3);
         Collections.sort(res);
@@ -46,7 +46,7 @@ public class GenerateAllValidParenthesis {
             System.out.println(line);
         }
 
-        Assert.assertTrue("For n = 3", Arrays.asList("((()))","(()())","(())()","()(())","()()()").equals(res));
+        Assertion.assertTrue("For n = 3", Arrays.asList("((()))","(()())","(())()","()(())","()()()").equals(res));
 
         res = generateParentheses(1);
         Collections.sort(res);
@@ -54,6 +54,6 @@ public class GenerateAllValidParenthesis {
             System.out.println(line);
         }
 
-        Assert.assertTrue("For n = 1", Arrays.asList("()").equals(res));
+        Assertion.assertTrue("For n = 1", Arrays.asList("()").equals(res));
     }
 }

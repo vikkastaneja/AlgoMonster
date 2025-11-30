@@ -1,7 +1,7 @@
 package com.algo.innov8r.binarytree;
 
 import com.algo.innov8r.basics.BinaryTreeNode;
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,7 +70,7 @@ public class InsertIntoBST {
         BinaryTreeNode<Integer> res = insertBst(bst, val);
         ArrayList<String> resArr = new ArrayList<>();
         formatTree(res, resArr);
-        Assert.assertEquals(String.join(" ", resArr), "8 4 2 1 x x 3 x x 6 x 7 x x 12 10 x x 14 x 15 x x");
+        Assertion.assertEquals(String.join(" ", resArr), "8 4 2 1 x x 3 x x 6 x 7 x x 12 10 x x 14 x 15 x x");
 
         value = "37 19 2 x x 28 23 x x 35 x x 44 x 58 52 x x 67 x x";
         bst = buildTree(splitWords(value).iterator(), Integer::parseInt);
@@ -78,7 +78,7 @@ public class InsertIntoBST {
         res = insertBst(bst, val);
         resArr = new ArrayList<>();
         formatTree(res, resArr);
-        Assert.assertEquals(String.join(" ", resArr), "37 19 2 x x 28 23 x x 35 x x 44 42 x x 58 52 x x 67 x x");
+        Assertion.assertEquals(String.join(" ", resArr), "37 19 2 x x 28 23 x x 35 x x 44 42 x x 58 52 x x 67 x x");
 
         value = "421 223 79 42 x x 157 133 x x x 327 x 404 356 x x 415 x x 741 626 x x 887 801 795 x x 842 x x 903 x 977 x x";
         bst = buildTree(splitWords(value).iterator(), Integer::parseInt);
@@ -86,7 +86,7 @@ public class InsertIntoBST {
         res = insertBst(bst, val);
         resArr = new ArrayList<>();
         formatTree(res, resArr);
-        Assert.assertEquals(String.join(" ", resArr),
+        Assertion.assertEquals(String.join(" ", resArr),
                 "421 223 79 42 x x 157 133 x x x 327 x 404 356 x x 415 x x 741 626 x x 887 801 795 x x 842 x x 903 x 977 x x");
 
         value = "13 7 5 2 x x x 9 x x 15 14 x x 16 x 18 x x";
@@ -95,7 +95,7 @@ public class InsertIntoBST {
         res = insertBst(bst, val);
         resArr = new ArrayList<>();
         formatTree(res, resArr);
-        Assert.assertEquals(String.join(" ", resArr), "13 7 5 2 x x x 9 x 12 x x 15 14 x x 16 x 18 x x");
+        Assertion.assertEquals(String.join(" ", resArr), "13 7 5 2 x x x 9 x 12 x x 15 14 x x 16 x 18 x x");
 
         value = "x";
         bst = buildTree(splitWords(value).iterator(), Integer::parseInt);
@@ -103,7 +103,7 @@ public class InsertIntoBST {
         res = insertBst(bst, val);
         resArr = new ArrayList<>();
         formatTree(res, resArr);
-        Assert.assertEquals(String.join(" ", resArr), "18 x x");
+        Assertion.assertEquals(String.join(" ", resArr), "18 x x");
 
         value = "37 19 2 x x 28 23 x x 35 x x 44 x 58 52 x x 67 x x";
         bst = buildTree(splitWords(value).iterator(), Integer::parseInt);
@@ -111,7 +111,7 @@ public class InsertIntoBST {
         res = insertBst(bst, val);
         resArr = new ArrayList<>();
         formatTree(res, resArr);
-        Assert.assertEquals(String.join(" ", resArr), "37 19 2 x x 28 23 x x 35 x x 44 x 58 52 x x 67 x 84 x x");
+        Assertion.assertEquals(String.join(" ", resArr), "37 19 2 x x 28 23 x x 35 x x 44 x 58 52 x x 67 x 84 x x");
 
     }
 }

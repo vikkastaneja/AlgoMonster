@@ -7,7 +7,7 @@ import java.io.StringWriter;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 public class MergeKSortedLists {
 
@@ -72,9 +72,9 @@ public class MergeKSortedLists {
 
         List<Integer> expected = Arrays.asList(1,2,3,4,5,6,7,10);
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         // Test 2
@@ -97,9 +97,9 @@ public class MergeKSortedLists {
 
         expected = Arrays.asList(1,2,3);
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

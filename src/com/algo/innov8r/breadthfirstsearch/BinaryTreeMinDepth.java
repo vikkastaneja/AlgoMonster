@@ -3,7 +3,7 @@ package com.algo.innov8r.breadthfirstsearch;
 import java.util.*;
 import java.util.function.Function;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 public class BinaryTreeMinDepth {
     public static class Node<T> {
@@ -67,11 +67,11 @@ public class BinaryTreeMinDepth {
         Node<Integer> root = buildTree(splitWords("1 2 4 x 7 x x 5 x x 3 x 6 x x").iterator(), Integer::parseInt);
         int res = binaryTreeMinDepth(root);
 
-        Assert.assertEquals("Unexpected depth of Shallow Node", 2, res);
+        Assertion.assertEquals("Unexpected depth of Shallow Node", 2, res);
 
         root = buildTree(splitWords("0 x x").iterator(), Integer::parseInt);
         res = binaryTreeMinDepth(root);
 
-        Assert.assertEquals("Unexpected depth of Shallow Node", 0, res);
+        Assertion.assertEquals("Unexpected depth of Shallow Node", 0, res);
     }
 }

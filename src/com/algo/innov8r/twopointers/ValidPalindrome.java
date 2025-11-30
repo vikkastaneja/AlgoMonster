@@ -1,6 +1,6 @@
 package com.algo.innov8r.twopointers;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 public class ValidPalindrome {
     public static boolean isPalindrome(String s) {
@@ -23,12 +23,12 @@ public class ValidPalindrome {
 
     public static void main(String[] args) {
         String s = "Do geese see God?";
-        Assert.assertTrue(isPalindrome(s));
+        Assertion.assertTrue(isPalindrome(s));
 
         s = "Was it a car or a cat I saw?";
-        Assert.assertTrue(isPalindrome(s));
+        Assertion.assertTrue(isPalindrome(s));
 
         s = "A brown fox jumping over";
-        Assert.assertFalse(isPalindrome(s));
+        Assertion.assertFalse(isPalindrome(s));
     }
 }

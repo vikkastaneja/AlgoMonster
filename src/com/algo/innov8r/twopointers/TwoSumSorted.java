@@ -1,6 +1,6 @@
 package com.algo.innov8r.twopointers;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,26 +32,26 @@ public class TwoSumSorted {
         String val = "2 3 5 8 11 15";
         List<Integer> nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         List<Integer> result = twoSumSorted(nums, 5);
-        Assert.assertEquals("0 1", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("0 1", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
         val = "2 5 10 12 30 100";
         nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         result = twoSumSorted(nums, 22);
-        Assert.assertEquals("2 3", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("2 3", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
         val = "1 2 3 10 20 30 50 100";
         nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         result = twoSumSorted(nums, 101);
-        Assert.assertEquals("0 7", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("0 7", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
         val = "1 2";
         nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         result = twoSumSorted(nums, 3);
-        Assert.assertEquals("0 1", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("0 1", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
 
         val = "100 1000 2001 3000 4000 5000";
         nums = splitWords(val).stream().map(Integer::parseInt).collect(Collectors.toList());
         result = twoSumSorted(nums, 5001);
-        Assert.assertEquals("2 3", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
+        Assertion.assertEquals("2 3", result.stream().map(String::valueOf).collect(Collectors.joining(" ")));
     }
 }

@@ -2,10 +2,10 @@ package com.algo.innov8r.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import com.algo.innov8r.common.Assertion;
 import java.util.List;
 
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 /**
  * Given a string s, partition s such that every substring of the partition is a palindrome.
@@ -53,17 +53,17 @@ public class PartitioningAStringIntoPalindromes {
         List<List<String>> res = partition(s);
         List<List<String>> expected = Arrays.asList(Arrays.asList("a", "a", "b"), Arrays.asList("aa", "b"));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
 
         res = partition("aba");
         expected = Arrays.asList(Arrays.asList("a", "b", "a"), Arrays.asList("aba"));
 
-        Assert.assertEquals("Length of two lists", expected.size(), res.size());
+        Assertion.assertEquals("Length of two lists", expected.size(), res.size());
         for (int i = 0; i < expected.size(); i++) {
-            Assert.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
+            Assertion.assertTrue("Index: " + String.valueOf(i), expected.get(i).equals(res.get(i)));
         }
     }
 }

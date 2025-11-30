@@ -1,7 +1,7 @@
 package com.algo.innov8r.twopointers;
 
 import com.algo.innov8r.basics.LinkedListNode;
-import org.junit.Assert;
+import com.algo.innov8r.common.Assertion;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -46,11 +46,11 @@ public class MiddleOfLinkedList {
         String val = "0 1 2 3 4";
         LinkedListNode<Integer> head = buildList(splitWords(val).iterator(), Integer::parseInt);
         int res = middleOfLinkedList(head);
-        Assert.assertEquals(2, res);
+        Assertion.assertEquals(2, res);
 
         val = "0 1 2 3 4 5";
         head = buildList(splitWords(val).iterator(), Integer::parseInt);
         res = middleOfLinkedList(head);
-        Assert.assertEquals(3, res);
+        Assertion.assertEquals(3, res);
     }
 }
