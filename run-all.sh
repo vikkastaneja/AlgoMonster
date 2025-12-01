@@ -1,92 +1,104 @@
 #!/usr/bin/env bash
-export TERM=xterm-256color
 set -e
-SRC="src"
-BUILD="build_temp"
-ASSERTION="$SRC/com/algo/innov8r/common/Assertion.java"
 
-echo -e "Preparing build..."
+# Directory setup
+src="src"
+build="build_temp"
+assertion="$src/com/algo/innov8r/common/Assertion.java"
+categoryFilter="$1"
 
-rm -rf "$BUILD"
-mkdir -p "$BUILD"
-
-echo "Compiling Assertion.java..."
-javac -d "$BUILD" "$ASSERTION"
-
-echo "Compiling other Java files..."
-OTHERS=$(find "$SRC" -name '*.java' ! -path "*common/Assertion.java")
-
-# Pick correct classpath separator for OS
-if [[ "$(uname -s)" == "Darwin" || "$(uname -s)" == "Linux" ]]; then
-  CP_SEP=":"
-else
-  CP_SEP=";"
+if [[ -z "$categoryFilter" ]]; then
+    categoryFilter="all"
 fi
 
-javac -d "$BUILD" -cp "$BUILD$CP_SEP$SRC" $OTHERS
+# Colors
+GREEN="\033[32m"
+RED="\033[31m"
+YELLOW="\033[33m"
+CYAN="\033[36m"
+RESET="\033[0m"
 
-echo
-echo "Running tests..."
-
-TOTAL=0
-PASSED=0
-FAILED=0
-
-CLASS_FILES=$(find "$BUILD" -name '*.class')
-
-for classfile in $CLASS_FILES; do
-    # Skip inner classes ($)
-    if [[ "$classfile" == *'$'* ]]; then
-        continue
-    fi
-
-    REL_PATH="${classfile#$BUILD/}"
-    CLASS_NAME="${REL_PATH%.class}"
-    CLASS_NAME="${CLASS_NAME//\//.}"
-
-    JAVA_SRC="${classfile/$BUILD/$SRC}"
-    JAVA_SRC="${JAVA_SRC%.class}.java"
-
-    [[ ! -f "$JAVA_SRC" ]] && continue
-
-    # Only run classes with a real main()
-    if ! grep -q "public static void main" "$JAVA_SRC"; then
-        continue
-    fi
-
-    TOTAL=$((TOTAL + 1))
-    echo "Running: $CLASS_NAME"
-
-    start=$(date +%s%N)
-    start=${start//[!0-9]/}
-
-    OUTPUT=$(java -cp "$BUILD$CP_SEP$SRC" "$CLASS_NAME" 2>&1)
-    EXIT=$?
-
-    end=$(date +%s%N)
-    end=${end//[!0-9]/}
-
-    runtime=$(( (end - start) / 1000000 ))
-
-    if [[ $EXIT -eq 0 ]]; then
-        echo -e "  ✔ PASS (${runtime}ms)"
-        PASSED=$((PASSED + 1))
+# Millisecond timestamp safe for macOS + Linux
+get_time_ms() {
+    if command -v gdate &> /dev/null; then
+        gdate +%s%3N
+    elif date +%s%3N &> /dev/null; then
+        date +%s%3N
     else
-        echo -e "  ✘ FAIL (${runtime}ms)"
-        FAILED=$((FAILED + 1))
-        echo "------ Output ------"
-        echo "$OUTPUT"
+        python3 - <<'EOF'
+import time; print(int(time.time() * 1000))
+EOF
+    fi
+}
+
+echo -e "${CYAN}Preparing build...${RESET}"
+
+# Clean old build
+rm -rf "$build"
+mkdir -p "$build"
+
+echo -e "${YELLOW}Compiling Assertion.java...${RESET}"
+javac -d "$build" "$assertion"
+
+echo -e "${YELLOW}Compiling other Java files...${RESET}"
+mapfile -t others < <(find "$src" -name "*.java" ! -path "$assertion")
+javac -d "$build" -cp "$build:$src" "${others[@]}"
+
+echo -e "\n${CYAN}Running tests...${RESET}"
+total=0
+passed=0
+failed=0
+
+# Get all compiled classes
+mapfile -t classes < <(find "$build" -name "*.class")
+
+for classFile in "${classes[@]}"; do
+    # Derive fully qualified class name
+    className="${classFile#$build/}"
+    className="${className%.class}"
+    className="${className//\//.}"
+
+    # Match .java source to filter by package/category
+    javaSource="$src/${className//.//}.java"
+    [[ ! -f "$javaSource" ]] && continue
+    [[ "$categoryFilter" != "all" && "$javaSource" != *"$categoryFilter"* ]] && continue
+
+    # Run only classes with main()
+    if ! grep -q "public static void main" "$javaSource"; then
+        continue
+    fi
+
+    total=$((total + 1))
+    echo -e "Running: $className"
+
+    start=$(get_time_ms)
+    output=$(java -cp "$build:$src" "$className" 2>&1)
+    exitCode=$?
+    end=$(get_time_ms)
+    duration=$((end - start))
+
+    if [[ $exitCode -eq 0 ]]; then
+        echo -e "  ${GREEN}✔ PASS${RESET} (${duration}ms)"
+        passed=$((passed + 1))
+    else
+        echo -e "  ${RED}✘ FAIL${RESET} (${duration}ms)"
+        failed=$((failed + 1))
+        echo -e "${YELLOW}---- Output Below ----${RESET}"
+        echo -e "${RED}${output}${RESET}"
     fi
 done
 
-echo
-echo "Summary:"
-echo "  Total:  $TOTAL"
-echo "  Passed: $PASSED"
-echo "  Failed: $FAILED"
+echo ""
+echo -e "${CYAN}================================${RESET}"
+echo -e "   TEST SUMMARY (${total})"
+echo -e "${CYAN}================================${RESET}"
+echo -e "${RED}✘ FAILED:${RESET}  $failed"
+echo -e "${GREEN}✔ PASSED:${RESET}  $passed"
+echo -e "${CYAN}--------------------------------${RESET}"
+echo -e "${CYAN}================================${RESET}"
 
-echo
+echo ""
 echo "Cleaning build folder..."
-rm -rf "$BUILD"
+rm -rf "$build"
 
-echo "Done!"
+echo -e "${GREEN}Done!${RESET}"
