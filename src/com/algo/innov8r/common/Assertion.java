@@ -99,6 +99,22 @@ public class Assertion {
         pass("assertMapEquals", expected, actual);
     }
 
+    public static <T> void assertStackEquals(Stack<T> expected, Stack<T> actual) {
+        if (!Objects.equals(expected, actual)) {
+            fail("Expected: " + expected + " but got: " + actual);
+        }
+
+        pass("assertStackEquals", expected, actual);
+    }
+
+    public static <T> void assertStackEquals(String message, Stack<T> expected, Stack<T> actual) {
+        if (!Objects.equals(expected, actual)) {
+            fail(message + " | Expected: " + expected + " but got: " + actual);
+        }
+
+        pass("assertStackEquals", expected, actual);
+    }
+
     private static void fail(String message) {
         System.err.println("Assertion failed: " + message);
         System.exit(1);
