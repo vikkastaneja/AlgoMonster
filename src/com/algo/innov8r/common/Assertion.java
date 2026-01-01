@@ -115,6 +115,22 @@ public class Assertion {
         pass("assertStackEquals", expected, actual);
     }
 
+    public static <T> void assertQueueEquals(Queue<T> expected, Queue<T> actual) {
+        if (!Objects.equals(expected, actual)) {
+            fail("Expected: " + expected + " but got: " + actual);
+        }
+
+        pass("assertQueueEquals", expected, actual);
+    }
+
+    public static <T> void assertQueueEquals(String message, Queue<T> expected, Queue<T> actual) {
+        if (!Objects.equals(expected, actual)) {
+            fail(message + " | Expected: " + expected + " but got: " + actual);
+        }
+
+        pass("assertQueueEquals", expected, actual);
+    }
+
     private static void fail(String message) {
         System.err.println("Assertion failed: " + message);
         System.exit(1);
